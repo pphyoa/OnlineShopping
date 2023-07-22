@@ -1,0 +1,1595 @@
+@import url('https://fonts.googleapis.com/css2?family=Adamina&family=Bungee+Spice&display=swap')
+*
+    margin: 0
+    padding: 0
+    text-decoration: none
+    box-sizing: border-box
+    text-transform: capitalize
+    transform: all 0.2s linear
+:root
+    --orange: #ff7800
+    --black: #130f40
+    --light-color: #666
+    --box-shadow: 0 .5rem 1rem rgba(0,0,0,.1)
+    --border: .2rem solid rgba(0,0,0,.1)
+    --outline: .1rem solid rgba(0,0,0,0.1)
+    --outline-hover: .2rem solid var(--black)
+
+body
+    background: #dfe3e6
+
+/***** Navigation bar start *****/
+.header
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 1000
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: .8rem 9%
+    background: #dfe3e6
+    box-shadow: var(--box-shadow)
+    .logo
+        display: grid
+        grid-template-columns: 1fr
+        font-size: 20px
+        font-weight: bolder
+        animation: slideRight .5s linear forwards
+        opacity: 0
+        
+        a
+            color: #130f40
+            font-family: 'Bungee Spice', cursive
+        .a2
+            margin-left: 40px
+            line-height: 8px
+            text-transform: lowercase
+    
+    .navbar
+        
+        // animation-delay: calc( .2s * var(--i) )
+        a
+            font-size: 1rem
+            margin: 0 1rem
+            color: var(--black)
+            animation: slideTop .7s linear forwards
+            opacity: 0
+            animation-delay: calc( .2s * var(--i) )
+            &:hover
+                color: var(--orange)
+
+    .icons 
+        
+        div
+            height: 40px
+            width: 40px
+            line-height: 40px
+            border-radius: 10px
+            background: #eee
+            color: var(--black)
+            font-size: 20px
+            margin-right: 10px
+            text-align: center
+            cursor: pointer
+            animation: slideLeft .4s linear forwards
+            opacity: 0
+            animation-delay: calc( .2s * var(--i) )
+        .fa-bars
+            display: none
+
+    .search-form
+        position: absolute
+        top: 110%
+        right: -110%
+        width: 500px
+        height: 40px
+        background: #fff
+        border-radius: 5px 
+        overflow: hidden
+        display: flex
+        align-items: center
+        box-shadow: var(--box-shadow)
+    .search-form.active
+        right: 20px
+        transition: 0.3s linear
+
+        input
+            height: 100%
+            width: 100%
+            background: none
+            text-transform: none
+            border: none
+            outline: none
+            font-size: 18px
+            color: var(--black)
+            padding: 0 1.5rem
+        label
+            font-size: 20px
+            padding-right: 1.5rem
+            color: var(--black)
+            cursor: pointer
+            &:hover
+                color: var(--black)
+
+    .shopping-cart
+        position: absolute
+        top: 110%
+        right: -110%
+        padding: 10px
+        border-radius: 10px
+        box-shadow: var(--box-shadow)
+        width: 300px
+        background: #fff
+    .shopping-cart.active
+        right: 20px
+        transition: 0.3s linear
+        .box
+            display: grid
+            grid-template-columns: 2fr 2fr 1fr
+            align-items: center
+            position: relative
+            margin: 20px 0
+            border-bottom: 1px solid #f0f2f3
+            padding: 20px 0
+
+            img
+                width: 50px
+                height: 50px
+            .fa-trash
+                font-size: 18px
+                // position: absolute
+                top: 50%
+                right: 0px
+                cursor: pointer
+                color: #f80202
+                margin-left: 10px
+                transform: translateY(-50%)
+            .fa-edit
+                font-size: 18px
+                // position: absolute
+                top: 50%
+                right: 0px
+                cursor: pointer
+                color: #1202f8
+                transform: translateY(-50%)
+
+            .content
+                .quantity
+                    padding-left: 10px
+
+        .total
+            font-size: 20px
+            padding: 10px 0
+            text-align: center
+            color: var(--black)
+        a.btn
+            margin: 10px auto
+            width: 95%
+            text-align: center
+            display: block
+            padding: 5px 10px
+            font-size: 18px
+            border-radius: 5px
+            color: var(--black)
+            border: 1px solid #7a7d7e
+            &:hover
+                background: var(--orange)
+                color: #f0f2f3
+
+.header
+    .login-form
+        position: absolute
+        top: 110%
+        right: -110%
+        width: 400px
+        box-shadow: var(--box-shadow)
+        padding: 10px
+        border-radius: 10px
+        background: #fff
+        text-align: center
+    .login-form.active
+        right: 20px
+        transition: 300ms linear
+
+        h3
+            font-size: 18px
+            margin: 20px 0
+            text-transform: uppercase
+            color: var(--black)
+        .box
+            background: #eee
+            border-radius: 5px
+            font-size: 16px
+            padding: 10px
+            width: 80%
+            margin: 10px 0
+            color: var(--black)
+            text-transform: none
+            border: none
+            outline: none
+        .icon
+            width: 80%
+            display: block
+            margin: 10px auto
+            a
+                font-size: 30px
+                text-align: center
+                margin: 10px 
+                i
+                    transition: 0.3s
+                i:hover
+                    transform: scale(1.4,1.4)
+                .fa-facebook
+                    background: linear-gradient(135deg, rgba(3, 33, 163, 0.63), rgb(255, 0, 234))
+                    -webkit-background-clip: text
+                    -webkit-text-fill-color: transparent
+                .fa-google
+                    background: linear-gradient(-135deg, #ff0606, #6f7272)
+                    -webkit-background-clip: text
+                    -webkit-text-fill-color: transparent
+                .fa-telegram
+                    background: linear-gradient(-135deg, #0630e7, #05e9dd)
+                    -webkit-background-clip: text
+                    -webkit-text-fill-color: transparent
+                .fa-instagram
+                     background: linear-gradient(-135deg, #ff050b, #f32156)
+                     -webkit-background-clip: text
+                     -webkit-text-fill-color: transparent
+              
+
+        .btn
+            width: 60%
+            border: none
+            outline: none
+            padding: 10px
+            border-radius: 5px
+            margin: 10px
+            font-weight: bolder
+            font-size: 20px
+            &:hover
+                background: var(--orange)
+                color: #fff
+
+/***** Navigation bar end *****/
+
+/***** Home page start *****/
+.headbody
+    padding-top: 4rem
+    width: 100%
+    height: 90vh
+    display: grid
+    grid-template-columns: 1fr 1fr
+    // background-color: #e21f1f
+    .firstbody
+        padding-top: 14rem
+        display: block
+        margin: 0 auto
+        h4
+            font-size: 20px
+            animation: slideRight .6s linear forwards
+            opacity: 0
+        h2
+            font-size: 50px
+            font-weight: bolder
+            line-height: 50px
+            animation: slideRight .6s linear forwards
+            opacity: 0
+        h1
+            font-size: 70px
+            font-weight: bolder
+            font-family: 'Bungee Spice', cursive
+            line-height: 60px
+            color: #088178
+            animation: slideRight .6s linear forwards
+            opacity: 0
+        p
+            font-size: 18px
+            line-height: 70px
+            animation: slideLeft .6s linear forwards
+            opacity: 0
+        button
+            background-color: transparent
+            color: #088178
+            border: 0
+            padding: 14px 80px 14px 65px
+            font-size: 18px
+            font-weight: 700
+            animation: slideLeft .6s linear forwards
+            opacity: 0
+            
+    .secondbody
+        padding-top: 10rem
+        padding: 20px
+        img
+            // margin-top: 70px
+            width: 100%
+            height: 550px
+            animation: zoomIn .7s ease forwards
+            transform: scale(0)
+
+        
+        
+/***** Home page end *****/
+
+/***** Controlscroll page start *****/
+.Controlscroll
+    .gif
+        // border: 2px solid #000
+        display: block
+        margin: 0 auto
+        width: 90px
+        height: 90px
+        border-radius: 50%
+        padding: 6px
+
+        img
+            // border: 2px solid #d2d5d6
+            background: linear-gradient(#90a1a3, #31727a, #c2e9ee)
+            transform: scale(1.1,1.1)
+            border-radius: 50%
+            padding: 13px            
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+    .TshirtDesign
+        text-align: center
+        margin-top: 50px
+        h1
+            font-size: 50px
+            font-weight: bolder
+            letter-spacing: 3px
+            font-family: Cambria, serif
+            animation: slideButton .5s linear forwards
+            opacity: 0
+        h4
+            font-size: 20px
+            font-style: italic
+            margin-top: 15px
+            color: #6d6e6e
+        .TshirtBody
+            width: 90%
+            display: block
+            margin: 30px auto
+            display: grid
+            grid-template-columns: repeat(5,1fr)
+            grid-gap: 30px
+            // background-color: #1713d6
+            .TshirtBox
+                border: 1px solid #cfcccc
+                border-radius: 20px
+                padding: 20px
+                position: relative
+                &:hover
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+                    // transform: scale(1.1,1.1)
+                    border: none
+
+                img
+                    width: 80%
+                    background-color: #d6dbdb
+                    border-radius: 20px
+                    height: 200px
+                p
+                    text-align: start
+                    text-transform: lowercase
+                    margin-top: 20px
+                h2
+                    text-align: start
+                    font-size: 18px
+                .Tshirticon
+                    text-align: start
+                    margin-top: 5px
+                    i
+                        font-size: 15px
+                        color: #c2c50bec
+                h3
+                    text-align: start
+                    margin-top: 10px
+                a
+                    color: #000
+                    padding: 10px
+                    border-radius: 50%
+                    background-color: #9be2dd
+                    position: absolute
+                    bottom: 10px
+                    right: 20px
+                    i
+                        text-align: end
+
+/***** Controlscroll page end *****/
+
+
+/***** TshirtTrailer page start *****/
+.TshirtTrailer
+    background-color: #ece8db
+    display: grid
+    grid-template-columns: 1fr 1fr
+    padding: 30px
+    .firstTrailer
+        display: block
+        margin: 0 auto
+        margin-top: 10rem
+        // position: relative
+        h4
+            font-size: 20px
+            font-family: cambria
+            font-weight: bolder
+            color: #3c3d3b
+        h1
+            font-size: 70px
+            font-weight: 700
+            font-family: cambria
+            color: #060872
+        h3
+            font-size: 30px
+            font-weight: bolder
+            font-style: italic
+            letter-spacing: 5px
+            color: #5f5b5b
+        button
+            margin: 30px 30px 0px
+            border: none
+            outline: none   
+            padding: 15px
+            border: 1px solid #c2bdbd
+            border-radius: 8px
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+            transition: 0.3s
+            &:hover
+                background: #04325e
+                border: none
+                transform: scale(1.1,1.1)
+                a
+                    color: #f0f2f3
+
+            a
+                font-size: 18px
+                text-decoration: none
+                color: #000   
+                 
+
+    .secondTrailer
+        display: flex
+        // margin-top: 10px
+        img
+            width: 80%
+            display: block
+            margin: 0 auto
+            height: 500px
+            transition: 300ms
+            &:hover
+                transform: scale(1.1,1.1)
+
+                
+/***** TshirtTrailer page end *****/
+
+/***** boy short page start *****/
+.shorts
+    margin-top: 50px
+    h1
+        text-align: center
+        font-size: 50px
+        font-weight: bolder
+        letter-spacing: 3px
+        font-family: Cambria, serif
+    h3
+        text-align: center
+        font-size: 20px
+        font-style: italic
+        margin-top: 15px
+        color: #6d6e6e
+.banner
+    width: 90%
+    display: block
+    margin: 50px auto 30px
+    // background-color: #d10d0d
+    display: grid
+    grid-template-columns: repeat(5,1fr)
+    grid-gap: 20px
+    position: relative
+
+    .card
+        position: relative
+        height: 450px
+        background: #232323
+        border-radius: 15px
+        overflow: hidden
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+
+        &::after
+            content: 'P2A'
+            position: absolute
+            top: 30%
+            left: -10%
+            font-size: 12rem
+            font-weight: 800
+            font-style: italic
+            color: rgba(255, 255, 255, 0.04)
+        .img-box
+            position: absolute
+            top: 50%
+            width: 100%
+            height: 220px
+            // z-index: 10000
+            transform: translateY(-50%)
+            transition: 0.5s
+            img
+                position: absolute
+                width: 220px
+                top: 40%
+                left: 50%
+                transform: translate(-50%, -50%) 
+        &:hover
+            .img-box
+                top: 10%
+                transform: translateY(0%)
+        .content-box
+            position: absolute
+            width: 100%
+            height: 100px
+            bottom: 0
+            text-align: center
+            transition: 1s 
+            z-index: 10
+            h2
+                position: relative
+                color: #fff
+                letter-spacing: 1px
+                font-weight: 600px
+                font-size: 30px
+                // transform: translateY(-0px)
+                transition: 0.5s
+            .size
+                display: flex
+                justify-content: center
+                align-items: center
+                padding: 8px 20px
+                transition: 0.5s
+                opacity: 0
+                visibility: hidden
+                h3
+                    color: #fff
+                    font-weight: 300
+                    font-size: 18px
+                    margin-right: 10px
+                    letter-spacing: 2px
+                    text-transform: uppercase
+            p
+                color: #fff
+                opacity: 0
+                font-size: 20px
+                margin-left: 35px
+                text-align: start
+                visibility: hidden
+                letter-spacing: 2px
+                font-style: italic
+            a
+                background: #e1f1f3
+                color: #141313
+                padding: 5px
+                border-radius: 4px
+                position: absolute
+                bottom: 5px
+                right: 40px
+                transform: translateY(50px)
+                
+        &:hover
+            .content-box
+                a
+                    transition: 0.5s
+                    transform: translateY(-30px)
+        &:hover            
+            .content-box
+                p
+                    opacity: 1
+                    visibility: visible
+                    transition: 0.5s
+                    transform: translateY(-50px)
+        &:hover
+            .content-box
+               .size
+                    opacity: 1
+                    visibility: visible
+                    transition: 0.5s
+                    transform: translateY(-70px)
+            .size
+                span
+                    width: 26px
+                    height: 26px
+                    text-align: center
+                    line-height: 26px
+                    font-size: 14px
+                    display: inline-block
+                    background: #fff
+                    color: #111
+                    margin: 15px 5px 0px
+                    transition: 0.5s
+                    border-radius: 4px
+                    cursor: pointer
+        &:hover
+            .content-box
+                h2
+                    transform: translateY(-80px)
+
+/***** boy short page end *****/      
+
+/***** short trailer  page start *****/ 
+.shortTrailer
+    display: block
+    margin: 0 auto
+    padding: 30px 0px
+    width: 90%
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 20px
+    
+    .shortTrailer-box
+        display: flex
+        height: 300px
+        background: linear-gradient(to right, #ceb10c, #85720ac7)
+        border-radius: 10px              
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+        .textBox
+            margin-top: 6rem
+            padding: 20px
+            h3
+                font-size: 20px
+                font-weight: bolder
+                color: #f0f2f3
+            h1
+                font-size: 40px
+                font-weight: bolder
+                color: #f0f2f3
+                font-family: cambria
+            h2
+                font-size: 15px
+                font-style: italic
+                color: #bee5eb
+        img
+            width: 100%
+            height: 250px
+            margin-top: 30px
+    #boyshort
+        background: linear-gradient(to right, #43a70a, #0f4903)
+.shortTrailer2
+    display: block
+    margin: 0 auto
+    padding: 30px 0px
+    width: 90%
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    grid-gap: 20px
+    .shortBox
+        position: relative
+        &:hover
+            h2,h1
+                color: #000
+        img
+            width: 100%
+            height: 300px
+            border-radius: 7px
+        &:hover
+            img
+                opacity: 0.3
+        h2
+            position: absolute
+            top: 110px
+            color: #041cf5
+            left: 30px
+            text-align: center
+            font-size: 17px
+            font-weight: bolder
+            font-family: cambria
+            letter-spacing: 3px
+        h1
+            position: absolute
+            top: 130px
+            left: 30px
+            color: #041cf5
+            font-size: 50px
+/***** short trailer  page start *****/ 
+
+/***** Feature  page start *****/ 
+.feature
+    display: block
+    margin: 20px auto 
+    width: 90%
+    display: grid
+    grid-template-columns: repeat(6,1fr)
+    grid-gap: 20px
+    // border-bottom: 1px solid #000
+    .fea-box
+        margin: 50px 0px
+        padding: 20px
+        // width: 200px
+        // height: 150px
+        text-align: center
+        border: 1px solid #94989b
+        border-radius: 5px
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+        transition: 0.3s
+        &:hover
+            transform: scale(1.1,1.1)
+        img
+            width: 100%
+        h5
+            margin: 20px 20px 0px
+            padding: 5px 0px
+            color: #fff
+            background: linear-gradient(to right, #43a70a, #0f4903)
+            border-radius: 50px
+/***** Feature page end *****/ 
+
+/***** Footer page start *****/ 
+.footer
+    margin: 20px 0px
+    background: linear-gradient(to right, #410aa7, #160349)
+    padding: 50px
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr 
+    grid-gap: 20px
+    .foot-box
+        padding: 20px
+        position: relative
+        h2,h3
+            font-size: 40px
+            font-weight: bolder
+            color: #bce8ee
+            margin-bottom: 30px
+        p
+            color: #f0f2f3
+            line-height: 25px
+            font-size: 18px
+            font-weight: bold
+        a
+            text-decoration: none
+            color: #fff
+        h3
+            margin-left: 50px
+            
+        img
+            width: 200px
+            height: 180px
+            right: 10rem
+            top: 4rem
+            position: absolute
+            transition: 0.3s
+            &:hover
+                transform: scale(1.1,1.1)
+        i
+            font-size: 50px
+            margin-top: 40px
+            margin-left: 20px
+            padding: 10px
+            border-radius: 7px
+            box-shadow: 0px -23px 25px 0px rgba(0, 0, 0, 0.17) inset, 0px -36px 30px 0px rgba(0, 0, 0, 0.15) inset, 0px -79px 40px 0px rgba(0, 0, 0, 0.1) inset, 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 4px 2px rgba(0, 0, 0, 0.09), 0px 8px 4px rgba(0, 0, 0, 0.09), 0px 16px 8px rgba(0, 0, 0, 0.09)
+            // box-shadow: 0 26px 58px 0 rgba(0, 0, 0, .22), 0 5px 14px 0 rgba(0, 0, 0, .18)
+            transition: 0.3s
+            &:hover
+                transform: scale(1.3,1.3)
+        .fa-facebook
+                    background: linear-gradient(135deg, rgba(3, 33, 163, 0.63), rgb(255, 0, 234))
+                    -webkit-background-clip: text
+                    -webkit-text-fill-color: transparent
+        .fa-youtube
+                    background: linear-gradient(-135deg, #ff0606, #6f7272)
+                    -webkit-background-clip: text
+                    -webkit-text-fill-color: transparent
+        .fa-telegram
+                    background: linear-gradient(-135deg, #0630e7, #05e9dd)
+                    -webkit-background-clip: text
+                    -webkit-text-fill-color: transparent
+        .fa-instagram
+                     background: linear-gradient(-135deg, #ff050b, #f32156)
+                     -webkit-background-clip: text
+                     -webkit-text-fill-color: transparent
+
+/***** Feature page end *****/ 
+
+/***** Company brand's logo start *****/ 
+.company
+    width: 90%
+    display: block
+    margin: 30px auto
+    text-align: center
+    h1
+        margin-top: 5rem
+        font-size: 50px
+        font-weight: bolder
+        letter-spacing: 3px
+        font-family: Cambria, serif
+    h3
+        font-size: 20px
+        font-style: italic
+        margin-top: 15px
+        color: #6d6e6e
+    .showing-slide
+        margin: 5rem 0px 50px
+        border-bottom: 1px solid #000
+.slick-slide 
+       margin: 0px 10px
+.slick-slide img 
+       width: 100%
+       height: 130px
+       border-radius: 10px
+       margin-bottom: 50px
+
+.pyaephyo
+    text-align: center
+    font-weight: bolder
+    font-style: italic
+    font-family: cambria
+    font-size: 30px
+    margin-bottom: 30px
+    text-transform: lowercase
+/***** Company brand's logo end *****/ 
+
+/***** Shirt page start *****/ 
+ul
+    li
+        list-style-type: none
+a
+    text-decoration: none
+.shirtpage
+    padding-top: 8rem
+    display: flex
+    width: 95%
+    margin: 0 auto
+    ul
+        padding: 0px 20px
+        h2
+            border-bottom: 1px solid #000
+            line-height: 40px
+        li
+            margin: 20px 0px
+            text-align: center
+            padding: 10px 
+            border-radius: 5px            
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+            a
+                font-size: 20px
+                color: #000
+                animation: slideRight .6s linear forwards
+                opacity: 0
+                animation-delay: calc( .2s * var(--i) )
+    .shipag-body
+        display: grid
+        padding: 0px 30px
+        grid-template-columns: repeat(6,1fr)
+        grid-gap: 20px
+        .shirtpageBox
+            border: 1px solid #bbb5b5
+            border-radius: 20px
+            padding: 20px
+            position: relative
+            &:hover
+                box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+                border: none
+            img
+                    width: 100%
+                    display: block
+                    margin: 0 auto
+                    background-color: #d6dbdb
+                    border-radius: 20px
+                    height: 150px
+            p
+                    text-align: start
+                    text-transform: lowercase
+                    margin-top: 20px
+                    color: #000
+            h2
+                    text-align: start
+                    font-size: 18px
+                    color: #000
+            .Tshirticon
+                    text-align: start
+                    margin-top: 5px
+                    i
+                        font-size: 15px
+                        color: #c2c50bec
+            h3
+                    text-align: start
+                    margin-top: 10px
+                    color: #000
+.pagination
+    text-align: center
+    // margin: 5rem 0px 20px
+    line-height: 50px
+    width: 90%
+    display: block
+    margin: 5rem auto 20px
+    border-bottom: 1px solid #000
+    a
+        text-decoration: none
+        color: #000
+        padding: 5px 10px
+        margin: 0 7px
+        font-size: 20px
+        border-radius: 5px
+        background-color: #b4adad
+        transition: 0.5s
+        &:nth-child(2),&:nth-child(3),&:nth-child(4),&:nth-child(5),&:nth-child(6)
+            &:hover
+                background-color: #e90909
+                color: #fff
+                border-radius: 50px
+
+            
+
+/***** Shirt page end *****/ 
+/***** Order page start *****/ 
+.order
+    display: flex
+    width: 90%
+    background-color: #9e9a9a
+    padding: 3rem 20px
+    margin: 6rem auto 0px
+    border-radius: 10px
+    img
+        width: 50%
+        border: 1px solid #000
+        padding: 50px
+        display: block
+        margin: 0 auto
+        border-radius: 10px
+    .order-box
+        width: 50%
+        // background-color: #c23333
+        padding: 0px 50px
+        display: block
+        margin: 0 auto
+        h1
+            font-size: 50px
+        p
+            i
+                color: #d2e004
+                margin-bottom: 20px
+        h2
+            width: 80%
+            line-height: 30px
+            margin-bottom: 10px
+            border-bottom: 1px solid #000
+        h3
+            margin-top: 20px
+            font-size: 30px
+            color: #df6231
+        h4
+            width: 80%
+            color: #5e5505
+            font-size: 25px
+            line-height: 30px
+            text-decoration: line-through
+            border-bottom: 1px solid #000
+        .color
+            padding: 20px 0px 10px
+            width: 80%
+            border-bottom: 1px solid #000
+
+            h1
+                font-size: 25px
+                margin-bottom: 20px
+            span
+                background-color: #5a5757
+                padding: 5px 10px
+                border-radius: 5px
+                color: #fff
+                &:hover
+                    background-color: #cf0b0b
+                &:nth-child(3)
+                    color: #000
+                &:nth-child(4)
+                    color: #f4f804
+                &:nth-child(5)
+                    color: #06eb3f
+        .size
+            width: 80%
+            border-bottom: 1px solid #000
+            padding: 20px 0px 10px
+            h1
+                font-size: 25px
+                margin-bottom: 20px
+            span
+                background-color: #5a5757
+                padding: 5px 10px
+                border-radius: 5px
+                color: #fff
+                font-weight: bolder
+        .quantity
+            width: 80%
+            border-bottom: 1px solid #000
+            padding: 20px 0px 10px
+            h1
+                font-size: 25px
+                margin-bottom: 20px
+            span
+                background-color: #5a5757
+                padding: 5px 10px
+                border-radius: 5px
+                color: #fff
+                font-weight: bolder
+                font-size: 20px
+        .btn
+            margin-top: 30px
+            button
+                width: 200px
+                font-size: 20px
+                padding: 10px 0px
+                margin: 0px 10px
+                border: none
+                outline: none
+                color: #fff
+                border-radius: 5px
+                font-weight: bolder
+                background-color: #100de0
+                &:nth-child(2)
+                    background-color: #e68506
+                    
+
+
+
+                    
+/***** Order page end *****/ 
+/***** Register Form page start *****/ 
+.register
+    width: 80%
+    // background-color: #ac1a1a
+    margin: 8rem auto 30px
+    form
+        width: 60%
+        border-radius: 10px
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+        padding: 30px
+        display: block
+        margin: 0 auto
+        text-align: center
+        h1
+            font-size: 50px
+            margin: 20px 0px
+            font-family: cambria
+        input
+            width: 80%
+            border: none
+            border-radius: 4px
+            font-weight: bold
+            outline: none
+            padding: 10px
+            margin: 10px 0px
+        .submit
+            // width: 60%
+            color: #fff
+            font-weight: bold
+            font-size: 20px
+            border-radius: 5px
+            background-color: #4b0ddb
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+        p
+            margin-top: 30px
+            a
+                font-size: 40px
+                margin: 50px 20px
+                i
+                    padding: 10px
+                    border-radius: 5px
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+                    transition: 300ms
+                    &:hover
+                        transform: scale(1.2,1.2)
+                .fa-facebook
+                    background: linear-gradient(135deg, rgba(3, 33, 163, 0.63), rgb(255, 0, 234))
+                    -webkit-background-clip: text
+                    -webkit-text-fill-color: transparent
+                .fa-google
+                    background: linear-gradient(-135deg, #ff0606, #6f7272)
+                    -webkit-background-clip: text
+                    -webkit-text-fill-color: transparent
+                .fa-telegram
+                    background: linear-gradient(-135deg, #0630e7, #05e9dd)
+                    -webkit-background-clip: text
+                    -webkit-text-fill-color: transparent
+                .fa-instagram
+                     background: linear-gradient(-135deg, #ff050b, #f32156)
+                     -webkit-background-clip: text
+                     -webkit-text-fill-color: transparent
+          
+/***** Register Form page end *****/ 
+/***** Animation style start ******/   
+@keyframes slideRight 
+    0%
+        transform: translateX(-100px)
+        opacity: 0
+    100%
+        transform: translateX(0)
+        opacity: 1
+@keyframes slideLeft
+    0%
+        transform: translateX(100px)
+        opacity: 0
+    100%
+        transform: translateX(0)
+        opacity: 1
+@keyframes slideTop
+    0%
+        transform: translateY(100px)
+        opacity: 0
+    100%
+        transform: translateX(0)
+        opacity: 1
+@keyframes slideButton
+    0%
+        transform: translateY(-100px)
+        opacity: 0
+    100%
+        transform: translateX(0)
+        opacity: 1
+@keyframes fadeIn
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+@keyframes zoomIn
+    0%
+        transform: scale(0)
+    100%
+        transform: scale(1)
+
+/***** Animation style end *****/
+/* media queries */   
+
+@media (max-width:991px)
+
+
+@media (max-width:768px)
+    .header
+        .icons
+            .fa-bars
+                 display: inline-block
+        .navbar
+            position: absolute
+            top: 110%
+            right: -110%
+            width: 300px
+            box-shadow: var(--box-shadow)
+            border-radius: 10px
+            background: #fff
+            li
+                list-style-type: none
+            a
+                display: block
+                margin: 20px 20px
+                font-size: 20px
+                text-decoration: none
+                border-bottom: 1px solid #f0f2f3
+                transition: 300ms
+                &:hover
+                    margin: 20px 50px
+        .navbar.active
+            right: 20px
+            transition: 0.3s linear
+        .search-form
+            width: 90%            
+        
+        .login-form
+            width: 60%
+
+    .headbody
+        grid-template-columns: 1fr
+        padding-top: 2rem
+        .firstbody
+            padding-top: 5rem
+            button
+                display: block
+                margin: 0 auto
+        .secondbody
+            margin: 0px
+            img
+                margin-top: 40px
+                width: 100%
+                height: 400px
+
+    .Controlscroll
+        margin-top: 10rem
+        .gif
+          display: none
+        .TshirtDesign
+            h1
+               font-size: 40px
+            .TshirtBody
+               grid-template-columns: 1fr 1fr 1fr
+               grid-gap: 15px
+               .TshirtBox
+                padding: 10px    
+                border-radius: 10px  
+                box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)    
+                &:nth-child(10)
+                    display: none
+                    
+
+                img
+                    width: 90%
+                    background-color: #d6dbdb
+                    border-radius: 10px
+                    height: 130px
+                p
+                    display: none
+                h2
+                    text-align: start
+                    font-size: 10px
+                .Tshirticon
+                    i
+                        font-size: 10px
+                a
+                    padding: 4px 5px
+                    font-size: 12px
+          
+                    i
+                        text-align: center
+
+    .TshirtTrailer
+       grid-template-columns: 1fr 
+       padding: 0px 5px
+       .firstTrailer
+        margin-top: 5rem
+        h4
+            font-size: 18px
+        h1
+            font-size: 50px
+        h3
+            font-size: 18px
+        button
+           display: none
+       .secondTrailer
+        margin-top: 10px
+        img
+            
+            height: 400px
+
+    .banner
+      width: 95%
+      grid-template-columns: 1fr 1fr
+      .card
+        height: 300px
+        border-radius: 15px
+        .img-box
+            height: 180px
+            img
+                width: 170px
+                // height: 150px
+                top: 30%
+        .content-box
+            h2
+                font-size: 25px
+            .size
+                h3
+                    font-size: 13px
+                    font-weight: 100
+                    letter-spacing: 1px
+                    // margin-right: 5px
+            p
+                font-size: 15px
+                margin-left: 15px
+            a
+                font-size: 10px
+                // bottom: 5px
+                right: 10px
+            .size
+                span
+                    width: 20px
+                    height: 20px
+                    line-height: 20px
+                    font-size: 7px
+                    margin: 10px 2px 0px
+        &:hover
+            .content-box
+                a
+                    transform: translateY(-20px)
+        &:hover
+            .content-box
+                h2
+                    transform: translateY(-40px)
+        &:hover            
+            .content-box
+                p
+                    transform: translateY(-20px)
+        &:hover
+            .content-box
+               .size
+                    transform: translateY(-40px)
+
+    .shortTrailer
+      grid-template-columns: 1fr 
+      .shortTrailer-box
+        .textBox
+            margin-top: 5rem
+            padding: 10px
+            h3
+                font-size: 20px
+            h1
+                font-size: 40px
+            h2
+                font-size: 15px
+    .shortTrailer2
+      display: none
+
+    .feature
+      grid-template-columns: 1fr 1fr 1fr
+      grid-gap: 10px
+      .fea-box
+        margin: 20px 0px
+        padding: 20px
+        img
+            width: 100%
+        h5
+            display: none
+
+    .footer
+      grid-template-columns: 1fr
+      .foot-box
+        &:nth-child(2)
+            display: none
+    .company
+        h1
+            font-size: 30px
+    .pyaephyo
+        font-size: 30px
+        margin-bottom: 30px
+    .shirtpage
+        width: 95%
+        display: block
+        margin: 0 auto
+        ul
+            display: none  
+        .shipag-body
+            grid-template-columns: 1fr 1fr 1fr
+            padding: 0px 10px
+            grid-gap: 20px 
+            .shirtpageBox
+                border-radius: 10px
+                img
+                    height: 100px   
+                p
+                    display: none
+                h2
+                    font-size: 12px
+                    margin-top: 10px
+                .Tshirticon
+                    i
+                        font-size: 12px
+    .pagination
+        a
+            font-size: 13px
+            margin: 0 3px
+    .register
+        margin: 7rem auto 0px
+        width: 90%
+        form
+            width: 100%
+            padding: 10px
+            h1
+                font-size: 30px
+            .submit
+                border-radius: 5px
+            p
+              margin: 20px 0px
+              a
+                font-size: 30px
+                margin: 50px 10px
+                i
+                    padding: 5px
+    .order
+      display: grid
+      grid-template-columns: 1fr
+      width: 100%
+      img
+        width: 100%
+      .order-box
+        width: 100%
+        padding: 20px 0px
+        margin-left: 0px
+        h1
+            font-size: 30px
+        p
+            i
+                font-size: 10px
+                color: #dfe20b
+        h2
+            font-size: 20px
+        h3
+            font-size: 20px
+        h4
+            font-size: 18px
+        .color
+            h1
+                font-size: 20px
+            span
+                background-color: #5a5757
+                padding: 5px 
+            h1
+                font-size: 20px
+            span
+                padding: 5px 
+        .quantity
+            h1
+                font-size: 20px
+            span
+                padding: 5px 10px
+        .btn
+            button
+                padding: 5px 0px
+                margin: 10px
+                font-weight: 100 
+
+@media (max-width:450px)
+    .header
+        .logo
+            a
+                font-size: 16px
+        .login-form
+            width: 90%
+
+    .headbody
+        .firstbody
+            h2
+                font-size: 40px
+            h1
+                font-size: 40px
+    .Controlscroll
+        margin-top: 10rem
+        .gif
+          display: none
+        .TshirtDesign
+            h1
+               font-size: 40px
+            .TshirtBody
+               grid-template-columns: 1fr 1fr
+               grid-gap: 15px
+               .TshirtBox
+                padding: 10px    
+                border-radius: 10px  
+                box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)    
+                &:nth-child(10)
+                    display: inline-block
+                    
+
+                img
+                    width: 90%
+                    background-color: #d6dbdb
+                    border-radius: 10px
+                    height: 130px
+                h2
+                    text-align: start
+                    font-size: 13px
+                .Tshirticon
+                    i
+                        font-size: 10px
+                a
+                    padding: 7px
+                    font-size: 14px
+          
+                    i
+                        text-align: center
+
+    .TshirtTrailer
+       .firstTrailer
+        h4
+            font-size: 18px
+        h1
+            font-size: 40px
+        h3
+            font-size: 18px
+        button
+           display: none
+       .secondTrailer
+        margin-top: 10px
+        img
+            width: 90%
+            height: 300px    
+
+    .shortTrailer
+      .shortTrailer-box
+         .textBox
+            margin-top: 2rem
+
+    .feature
+      grid-template-columns: 1fr 1fr 
+      grid-gap: 10px
+      .fea-box
+        margin: 10px 0px
+
+    .footer
+        .foot-box
+            h2
+                font-size: 35px
+            h3
+                margin-left: 0px
+    .company
+        h1
+            font-size: 30px
+    .pyaephyo
+        font-size: 30px
+        margin-bottom: 30px
+    .shirtpage
+        width: 100%
+        display: block
+        margin: 0 auto
+        ul
+            display: none  
+        .shipag-body
+            grid-template-columns: 1fr 1fr
+            padding: 0px 10px
+            grid-gap: 20px 
+            .shirtpageBox
+                border-radius: 10px
+                img
+                    height: 100px   
+                p
+                    display: none
+                h2
+                    font-size: 12px
+                    margin-top: 10px
+                .Tshirticon
+                    i
+                        font-size: 12px
+    .pagination
+        a
+            font-size: 13px
+            margin: 0 3px
+    .register
+        margin: 7rem auto 0px
+        width: 90%
+        form
+            width: 100%
+            padding: 10px
+            h1
+                font-size: 30px
+            .submit
+                border-radius: 5px
+            p
+              margin: 20px 0px
+              a
+                font-size: 30px
+                margin: 50px 10px
+                i
+                    padding: 5px
+
+    .order
+      display: grid
+      grid-template-columns: 1fr
+      width: 100%
+      img
+        width: 100%
+      .order-box
+        width: 100%
+        padding: 20px 0px
+        margin-left: 0px
+        h1
+            font-size: 30px
+        p
+            i
+                font-size: 10px
+                color: #dfe20b
+        h2
+            font-size: 20px
+        h3
+            font-size: 20px
+        h4
+            font-size: 18px
+        .color
+            h1
+                font-size: 20px
+            span
+                background-color: #5a5757
+                padding: 5px 
+            h1
+                font-size: 20px
+            span
+                padding: 5px 
+        .quantity
+            h1
+                font-size: 20px
+            span
+                padding: 5px 10px
+        .btn
+            button
+                padding: 5px 0px
+                margin: 10px
+                font-weight: 100
