@@ -360,8 +360,6 @@ body {
   font-weight: bolder;
   letter-spacing: 3px;
   font-family: Cambria, serif;
-  animation: slideButton 0.5s linear forwards;
-  opacity: 0;
 }
 .Controlscroll .TshirtDesign h4 {
   font-size: 20px;
@@ -1602,17 +1600,36 @@ a {
   }
 }
 @media (max-width: 450px) {
+  .header .logo {
+    animation: none;
+    opacity: 1;
+  }
   .header .logo a {
     font-size: 16px;
   }
+  .header .navbar a {
+    animation: none;
+  }
+  .header .icons div {
+    animation: none;
+    opacity: 1;
+  }
   .header .login-form {
     width: 90%;
+  }
+  .headbody .firstbody h4, .headbody .firstbody h2, .headbody .firstbody h1, .headbody .firstbody p, .headbody .firstbody button {
+    animation: none;
+    opacity: 1;
   }
   .headbody .firstbody h2 {
     font-size: 40px;
   }
   .headbody .firstbody h1 {
     font-size: 40px;
+  }
+  .headbody .secondbody img {
+    animation: none;
+    transform: scale(1, 1);
   }
   .Controlscroll {
     margin-top: 10rem;

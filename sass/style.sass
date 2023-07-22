@@ -339,8 +339,6 @@ body
             font-weight: bolder
             letter-spacing: 3px
             font-family: Cambria, serif
-            animation: slideButton .5s linear forwards
-            opacity: 0
         h4
             font-size: 20px
             font-style: italic
@@ -1421,17 +1419,33 @@ a
 @media (max-width:450px)
     .header
         .logo
+            animation: none
+            opacity: 1
             a
                 font-size: 16px
+        .navbar
+            a
+                animation: none
+        .icons
+            div
+                animation: none
+                opacity: 1
         .login-form
             width: 90%
 
     .headbody
         .firstbody
+            h4,h2,h1,p,button
+                animation: none
+                opacity: 1
             h2
                 font-size: 40px
             h1
                 font-size: 40px
+        .secondbody
+            img
+                animation: none
+                transform: scale(1,1)
     .Controlscroll
         margin-top: 10rem
         .gif
