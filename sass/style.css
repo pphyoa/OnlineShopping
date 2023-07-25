@@ -1420,8 +1420,7 @@ a {
     margin-left: 15px;
   }
   .banner .card .content-box a {
-    font-size: 10px;
-    right: 10px;
+    display: none;
   }
   .banner .card .content-box .size span {
     width: 20px;
